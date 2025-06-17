@@ -31,12 +31,13 @@ export const LogInModal = ({
             .then(res => {
                 console.log(res.data);
                 setUserData(res.data.user);
+                console.log("USER => ", res.data)
                 StorageService.setToken('accessToken', res.data.accessToken);
                 StorageService.setToken('refreshToken', res.data.refreshToken);
                 setIsAuth(true);
 
                 onClose();
-                window.location.reload();
+                // window.location.reload();
             })
             .catch(e => {
                 console.log('Error! => ', e);

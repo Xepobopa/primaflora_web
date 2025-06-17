@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../common/hooks/useAuth/useAuth';
-import { Service } from '../../common/services';
+import { Service, TUser } from '../../common/services';
 import { StorageService } from '../../common/storage/storage.service';
 import { Toast } from '../../common/toast';
 import { Button } from '../../components/buttons';
@@ -13,24 +13,8 @@ import './styles.css';
 export const UserInfo = () => {
     const { t } = useTranslation();
     const { user } = useUserData();
-    // const { notifyError } = useToast();
-    // const { updateUserData } = useAuth();
     const navigate = useNavigate();
     const { clearAll, setIsAuth } = useAuth();
-
-    // const handleUpdateUser = async (updateObj: object) => {
-    //     Service.UserService.patchUpdate(updateObj)
-    //         .then(() => {
-    //             updateUserData(updateObj);
-    //         })
-    //         .catch(error => {
-    //             if (axios.isAxiosError(error)) {
-    //                 notifyError(error.response?.data.message[0]);
-    //             } else {
-    //                 notifyError(t('erros.change-user-data'));
-    //             }
-    //         });
-    // };
 
     const handleLogOutPress = () => {
         Service.AuthService.postLogOut();
@@ -64,12 +48,6 @@ export const UserInfo = () => {
                 <Section
                     title={t('user-info.first-person-name')}
                     content={user?.name || 'Test User Lorem Ipsum'}
-                    // button={{
-                    //     text: 'Редагувати',
-                    //     onUpdate(newValue) {
-                    //         handleUpdateUser({ name: newValue });
-                    //     },
-                    // }}
                 />
                 <Section
                     title={t('user-info.second-person-name')}

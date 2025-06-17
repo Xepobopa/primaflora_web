@@ -7,6 +7,7 @@ export const useLoadUserData = () => {
     const load = () => {
         Service.UserService.getUserByToken({ loadInvitedUser: true })
             .then(res => {
+                console.log("USER LOADED: ", res.data);
                 setUserData(res.data);
                 setIsAdmin(res.data.role?.name === EUserRole.ADMIN);
             })

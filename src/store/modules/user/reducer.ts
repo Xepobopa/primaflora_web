@@ -25,6 +25,7 @@ export const slice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<TUser>) => {
             state.user = action.payload;
+            console.log("Save user: ", state.user)
         },
         updateUser: (state, action: PayloadAction<Partial<TUser>>) => {
             state.user = { ...state.user, ...action.payload } as TUser;

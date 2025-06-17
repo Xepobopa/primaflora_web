@@ -89,7 +89,6 @@ export const ProductConstructor = () => {
             price_currency: parseFloat(newProduct.get('price_currency') as string),
             price_points: 0,
             percent_discount: parseFloat(newProduct.get('percent_discount') as string),
-            rating: parseFloat(newProduct.get('rating') as string), 
             categoryId: Number(subcategoryId),
             translate: []
         };
